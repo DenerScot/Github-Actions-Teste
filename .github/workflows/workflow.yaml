@@ -1,0 +1,24 @@
+# .github/workflows/hello-windows.yml
+name: Hello Windows Workflow
+
+# Evento que dispara o workflow
+on:
+  push:   # sempre que houver push em qualquer branch
+
+jobs:
+  hello:
+    # Runner que executa os jobs
+    runs-on: windows-latest
+    
+    steps:
+      # Passo 1: Exibir mensagem inicial
+      - name: Mensagem inicial
+        run: echo "🚀 Workflow iniciado no Windows!"
+        
+      # Passo 2: Exibir branch e autor do push
+      - name: Mostrar informações do GitHub
+        run: echo "Branch = ${{ github.ref }} | Autor = ${{ github.actor }}"
+        
+      # Passo 3: Mensagem final
+      - name: Mensagem final
+        run: echo "✅ Workflow finalizado com sucesso!"
